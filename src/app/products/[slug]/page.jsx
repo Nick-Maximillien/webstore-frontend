@@ -14,7 +14,7 @@ export default function ProductDetails() {
   useEffect(() => {
     async function fetchProduct() {
       try {
-        const res = await fetch(`https://online-store-production-b3b2.up.railway.app//products/${slug}/`, { next: { revalidate: 60 } });
+        const res = await fetch(`https://online-store-production-b3b2.up.railway.app/products/${slug}/`, { next: { revalidate: 60 } });
         const data = await res.json();
 
         if (!data || data.detail === "Not found.") {
