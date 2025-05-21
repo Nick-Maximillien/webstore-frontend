@@ -1,5 +1,5 @@
 "use server";
-import { UseFetchProducts } from "../utils/UseFetchProducts";
+import { UseFetchProducts } from "../utils/UseFetchProducts.js";
 import ProductCard from "../components/ProductCard";
 
 // Define the Product type
