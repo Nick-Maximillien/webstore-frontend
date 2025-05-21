@@ -1,5 +1,5 @@
 
-import { UseFetchProducts }  from "../utils/UseFetchProducts.js";
+import { UseFetchProducts }  from "../../utils/UseFetchProducts.js";
 import ProductCard from "./ProductCard";
 
 export default async function TrendingProducts() {
