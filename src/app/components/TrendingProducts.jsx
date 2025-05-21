@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { UseFetchProducts } from "@utils/useFetchProducts";
+import useFetchProducts from '../utils/useFetchProducts';
 import ProductCard from "./ProductCard";
 
 export default async function TrendingProducts() {
