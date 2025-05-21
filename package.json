@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-    "build": "set NEXT_DISABLE_LINTING=true&& set NEXT_IGNORE_TYPE_ERRORS=true&& next build",
+    "build": "NEXT_DISABLE_LINTING=true NEXT_IGNORE_TYPE_ERRORS=true next build"
     "lint": "next lint"
   },
   "dependencies": {
