@@ -1,5 +1,5 @@
 "use server";
-import { UseFetchProducts } from "@utils/useFetchProducts";
+import { UseFetchProducts } from "../utils/UseFetchProducts";
 import ProductCard from "../components/ProductCard";
 
 // Define the Product type
