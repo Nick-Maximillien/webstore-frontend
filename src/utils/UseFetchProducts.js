@@ -1,9 +1,8 @@
-// utils/UsefetchProducts.ts
+// utils/UsefetchProducts.js
+
 export async function UseFetchProducts() {
   try {
-    const res = await fetch("https://online-store-production-b3b2.up.railway.app/products/", {
-      next: { revalidate: 60 }, // ✅ Allow static rendering with revalidation
-    });
+    const res = await fetch("https://online-store-production-b3b2.up.railway.app/products/");
 
     if (!res.ok) throw new Error("Failed to fetch products");
 
@@ -14,11 +13,12 @@ export async function UseFetchProducts() {
     return data.map((product) => ({
       id: product.id,
       name: product.name,
-      images: product.images?.map((img) => ({
-        image: img.image.startsWith("http")
-          ? img.image
-          : `https://online-store-production-b3b2.up.railway.app${img.image}`,
-      })) || [],
+      images:
+        product.images?.map((img) => ({
+          image: img.image.startsWith("http")
+            ? img.image
+            : `https://online-store-production-b3b2.up.railway.app${img.image}`,
+        })) || [],
       description: product.description,
       price: product.price,
       category: product.category,
@@ -33,3 +33,4 @@ export async function UseFetchProducts() {
     return [];
   }
 }
+
