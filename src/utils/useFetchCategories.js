@@ -1,7 +1,7 @@
 export async function UseFetchCategories() {
   try {
     const res = await fetch("https://online-store-production-b3b2.up.railway.app/categories/", {
-      next: { revalidate: 60 }, // ✅ enable ISR (Incremental Static Regeneration)
+      next: { revalidate: 60 }, // ✅ ISR
     });
 
     if (!res.ok) throw new Error("Failed to fetch categories");
@@ -15,8 +15,8 @@ export async function UseFetchCategories() {
       slug: category.slug,
       description: category.description,
       featured: category.featured || false,
-      images: category.image
-        ? [{ image: `https://online-store-production-b3b2.up.railway.app${category.image}` }]
+      images: category.image_url
+        ? [{ image: category.image_url.replace("http://", "https://") }]
         : [],
     }));
   } catch (error) {
