@@ -15,13 +15,19 @@ export async function UseFetchProducts() {
       name: product.name,
       images:
         product.images?.map((img) => ({
-          image: img.image.startsWith("http")
-            ? img.image
-            : `https://online-store-production-b3b2.up.railway.app${img.image}`,
+          image: img.image_url?.startsWith("http")
+            ? img.image_url
+            : `https://online-store-production-b3b2.up.railway.app${img.image_url}`,
         })) || [],
       description: product.description,
       price: product.price,
-      category: product.category,
+      category: {
+        id: product.category?.id,
+        name: product.category?.name,
+        description: product.category?.description,
+        slug: product.category?.slug,
+        image: product.category?.image_url,
+      },
       featured: product.featured || false,
       recommended: product.recommended || false,
       trending: product.trending || false,
@@ -33,4 +39,3 @@ export async function UseFetchProducts() {
     return [];
   }
 }
-
