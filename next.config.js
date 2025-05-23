@@ -10,7 +10,9 @@ const nextConfig = {
           protocol: "http",
           hostname: "localhost", 
           port: "8000",
-          pathname: "/media/**", // Adjusted for your media paths
+          pathname: "/media/**",
+          domains: ['res.cloudinary.com'],
+          // Adjusted for your media paths
         },
       ],
     },
