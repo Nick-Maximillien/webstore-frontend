@@ -14,7 +14,9 @@ export default function ProductDetails() {
   useEffect(() => {
     async function fetchProduct() {
       try {
-        const res = await fetch(`https://online-store-production-b3b2.up.railway.app/products/${slug}/`, { next: { revalidate: 60 } });
+        const res = await fetch(`https://online-store-production-b3b2.up.railway.app/products/${slug}/`, {
+          next: { revalidate: 60 },
+        });
         const data = await res.json();
 
         if (!data || data.detail === "Not found.") {
@@ -39,11 +41,12 @@ export default function ProductDetails() {
   return (
     <div className="container py-5">
       <h1 className="text-center">{product.name}</h1>
+
       <div className="d-flex justify-content-center gap-4 flex-wrap mb-4">
         {product.images?.slice(0, 2).map((img, index) => (
           <Image
             key={index}
-            src={`https://online-store-production-b3b2.up.railway.app${img.image}`}
+            src={img.image_url.replace("http://", "https://")}
             alt={`${product.name} image ${index + 1}`}
             width={300}
             height={200}
